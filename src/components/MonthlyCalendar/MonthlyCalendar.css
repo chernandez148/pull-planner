@@ -1,0 +1,115 @@
+.current-month {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #1c1c1c;
+  color: #999999;
+}
+.current-month span {
+  margin: 0 20px;
+  font-size: 12px;
+  text-transform: uppercase;
+  padding: 10px;
+  font-weight: 600;
+}
+
+.current-month svg {
+  cursor: pointer;
+}
+
+.current-month button {
+  background: transparent;
+  border: 0;
+}
+
+.filter-calendar {
+  position: absolute;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calendar {
+  overflow-x: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: #252525 #0e0e0e;
+}
+
+.priority-name {
+}
+
+table {
+  border-spacing: 0;
+}
+
+.day {
+  padding: 10px 30px;
+}
+
+thead th {
+  border-right: 1px solid #000000;
+  border-top: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+  background-color: #1c1c1c;
+  font-size: 10px;
+  color: #999999;
+}
+
+tbody th {
+  background-color: #1c1c1c;
+  /* border-right: 1px solid #000000;
+  border-top: 1px solid #000000; */
+  color: #999999;
+  font-size: 10px;
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  padding: 0 50px;
+}
+
+tbody td {
+  border-right: 1px solid #000000;
+  border-top: 1px solid #000000;
+  padding: 0;
+}
+
+.task-wrapper {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+  width: 100px;
+  align-content: space-between;
+}
+
+#milestone-selector {
+  padding: 2px;
+  margin: 0px;
+  background: #252525;
+  border-color: #00000000;
+  border-radius: 5px;
+  color: #999999;
+  width: 150px;
+}
+
+.milestones {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #999999;
+  font-size: 10px;
+  margin: 5px;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.milestones span {
+  background: red;
+  transform: rotate(45deg);
+  margin: 5px 5px 10px 5px;
+  width: 15px;
+  height: 15px;
+  position: relative;
+  display: block;
+}

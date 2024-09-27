@@ -1,0 +1,54 @@
+.TaskByID {
+  position: absolute;
+  width: 300px;
+  bottom: 0;
+  left: 0;
+  z-index: 3;
+
+  overflow: hidden;
+}
+
+.task-by-id-card {
+  width: 298px;
+  height: 300px;
+  z-index: 1;
+
+  border-radius: 0 !important;
+}
+
+.task-by-id-card h4 {
+  margin: 0;
+}
+
+.task-by-id-header,
+.task-by-id-body {
+  padding: 10px;
+}
+
+.task-by-id-header {
+  background: #2f2f2f;
+  color: #959595;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.task-by-id-header svg {
+  cursor: pointer;
+}
+
+.task-by-id-body p {
+  font-size: 14px !important;
+}
+
+.task-by-id-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+}
+
+.task-by-id-info p {
+  display: flex;
+  align-items: center;
+}
