@@ -4,8 +4,9 @@ const taskData = [
     title: "Site Preparation",
     description:
       "Clear and prepare the site for construction, including demolition of existing structures.",
-    task_type: "Milestone",
+    assignment_type: "Milestone",
     priority: "LVL1",
+    milestone_parent: null,
     employees: [
       { id: 1, name: "John Doe" },
       { id: 2, name: "Jane Smith" },
@@ -20,8 +21,9 @@ const taskData = [
     id: 11,
     title: "Foundation Laying",
     description: "Excavate and lay the foundation for the building structure.",
-    task_type: "Milestone",
+    assignment_type: "Milestone",
     priority: "LVL1",
+    milestone_parent: null,
     employees: [
       { id: 1, name: "John Doe" },
       { id: 2, name: "Jane Smith" },
@@ -37,6 +39,7 @@ const taskData = [
     title: "Concrete Pouring",
     description:
       "Pour concrete for the foundation and ensure it sets properly.",
+    assignment_type: "Task",
     priority: "LVL1",
     milestone_parent: 1,
     employees: [
@@ -54,6 +57,7 @@ const taskData = [
     title: "Framing",
     description:
       "Construct the framework for the building including walls and roof.",
+    assignment_type: "Task",
     priority: "LVL1",
     milestone_parent: 1,
     employees: [
@@ -63,13 +67,14 @@ const taskData = [
     start_date: "Sunday, Sep 12 2024",
     end_date: "Sunday, Sep 13 2024",
     predecessor: 2,
-    successor: 4,
+    successor: undefined,
     color: "#8500ff",
   },
   {
     id: 4,
     title: "Roof Installation",
     description: "Install roofing materials and ensure proper waterproofing.",
+    assignment_type: "Task",
     priority: "LVL1",
     milestone_parent: 11,
     employees: [
@@ -86,7 +91,7 @@ const taskData = [
     id: 5,
     title: "Electrical Rough-In",
     description: "Install electrical wiring and fixtures before closing walls.",
-    task_type: "Milestone",
+    assignment_type: "Milestone",
     priority: "LVL3",
     employees: [
       { id: 9, name: "Emily Purple" },
@@ -103,6 +108,7 @@ const taskData = [
     title: "Plumbing Installation",
     description:
       "Install plumbing systems and fixtures throughout the building.",
+    assignment_type: "Task",
     priority: "LVL3",
     milestone_parent: 5,
     employees: [
@@ -119,6 +125,7 @@ const taskData = [
     id: 7,
     title: "Interior Drywall",
     description: "Install drywall and prepare for painting and finishing.",
+    assignment_type: "Task",
     priority: "LVL3",
     milestone_parent: 5,
     employees: [
@@ -136,6 +143,7 @@ const taskData = [
     title: "Final Finishing",
     description:
       "Complete painting, flooring, and final touches to the interior.",
+    assignment_type: "Task",
     priority: "LVL3",
     milestone_parent: 5,
     employees: [
@@ -152,7 +160,7 @@ const taskData = [
     id: 9,
     title: "Final Inspection",
     description: "Conduct a final inspection of the completed building.",
-    task_type: "Milestone",
+    assignment_type: "Milestone",
     priority: "LVL5",
     employees: [
       { id: 1, name: "John Doe" },
@@ -168,6 +176,7 @@ const taskData = [
     id: 10,
     title: "Project Handover",
     description: "Official handover of the project to the client.",
+    assignment_type: "Task",
     priority: "LVL5",
     milestone_parent: 9,
     employees: [

@@ -1,14 +1,14 @@
 // src/App.js
 import React from "react";
 import MasterPlanner from "./components/MasterPlanner/MasterPlanner";
+import taskData from "./helperData/taskData";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header"></header>
       <main>
-        <MasterPlanner />
+        <MasterPlanner taskData={taskData} />
       </main>
     </div>
   );

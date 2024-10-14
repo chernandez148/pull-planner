@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import AssignmentForm from "../AssignmentForm/AssignmentForm";
 import Task from "../Task/Task";
-import taskData from "../../helperData/taskData";
 import { GrFormPrevious, GrFormNext } from "react-icons/gr";
 import { BiPlus } from "react-icons/bi";
 import {
@@ -17,12 +16,13 @@ import {
 import { CSSTransition } from "react-transition-group";
 import "./MonthlyCalendar.css";
 
-const MonthlyCalendar = () => {
+const MonthlyCalendar = ({ taskData }) => {
   const [currentDate, setCurrentDate] = useState(new Date());
-  const [selectedMilestone, setSelectedMilestone] = useState({}); // Initialize as
+  const [selectedMilestone, setSelectedMilestone] = useState({});
   const [taskByID, setTaskByID] = useState(null);
   const [displayAssignmentForm, setDisplayAssignmentForm] = useState(false);
 
+  const today = format(new Date(), "MM/dd");
   const startOfMonthDate = startOfMonth(currentDate);
   const endOfMonthDate = endOfMonth(currentDate);
 
@@ -44,7 +44,7 @@ const MonthlyCalendar = () => {
     const milestones = {};
 
     tasks.forEach((task) => {
-      if (task.task_type === "Milestone") {
+      if (task.assignment_type === "Milestone") {
         if (!milestones[task.priority]) {
           milestones[task.priority] = [];
         }
@@ -106,12 +106,29 @@ const MonthlyCalendar = () => {
       grouped.push([...predecessorGroup, ...group]);
     });
 
-    return grouped;
+    // Separate tasks without predecessors
+    const separatedGroups = [];
+    const addedTasks = new Set();
+
+    grouped.forEach((group) => {
+      if (group.length === 1 && group[0].predecessor === undefined) {
+        separatedGroups.push(group);
+        addedTasks.add(group[0].id);
+      } else {
+        const filteredGroup = group.filter((task) => !addedTasks.has(task.id));
+        if (filteredGroup.length > 0) {
+          separatedGroups.push(filteredGroup);
+          filteredGroup.forEach((task) => addedTasks.add(task.id));
+        }
+      }
+    });
+
+    return separatedGroups;
   };
 
   const { grouped, milestones } = groupTasksByPriority(taskData);
   const milestonesList = taskData.filter(
-    (task) => task.task_type === "Milestone"
+    (task) => task.assignment_type === "Milestone"
   );
 
   const handleMilestoneSelection = (event) => {
@@ -248,6 +265,10 @@ const MonthlyCalendar = () => {
                         <td
                           style={{
                             height: "53px",
+                            background:
+                              today === format(day, "MM/dd")
+                                ? "#ffffff14"
+                                : "transparent",
                           }}
                           key={day.toString()}
                         >
@@ -271,6 +292,10 @@ const MonthlyCalendar = () => {
                         <td
                           style={{
                             height: "100px",
+                            background:
+                              today === format(day, "MM/dd")
+                                ? "#ffffff14"
+                                : "transparent",
                           }}
                           key={day.toString()}
                         >

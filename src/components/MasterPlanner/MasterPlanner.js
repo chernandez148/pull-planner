@@ -1,10 +1,10 @@
 import React from "react";
 import MonthlyCalendar from "../MonthlyCalendar/MonthlyCalendar";
 
-function MasterPlanner() {
+function MasterPlanner({ taskData }) {
   return (
     <div className="MasterPlanner">
-      <MonthlyCalendar />
+      <MonthlyCalendar taskData={taskData} />
     </div>
   );
 }
